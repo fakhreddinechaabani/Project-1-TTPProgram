@@ -8,32 +8,12 @@
   <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/styles.css">
-  <script>
-    var slideIndex = [1,1];
-    var slideId = ["mySlides1"]
-    showSlides(1, 0);
   
-    
-    function plusSlides(n, no) {
-      showSlides(slideIndex[no] += n, no);
-    }
-    
-    function showSlides(n, no) {
-      var i;
-      var x = document.getElementsByClassName(slideId[no]);
-      if (n > x.length) {slideIndex[no] = 1}    
-      if (n < 1) {slideIndex[no] = x.length}
-      for (i = 0; i < x.length; i++) {
-         x[i].style.display = "none";  
-      }
-      x[slideIndex[no]-1].style.display = "block";  
-    }
-    </script>
 </head>
 <body>
 
   <header>
-    <h2><a href="#">Tropical Vacation</a></h2>
+    <h2><a href="#">Tropicolada</a></h2>
     <nav>
       <li><a href="#locations">Locations</a></li>
       <li><a href="#">About Us</a></li>
@@ -50,27 +30,43 @@
     </div>
   </section>
   
-  <section id="locations">
+  <section class="locations">
     <h3 class="title">Some of our Locations:</h3>
     <p>Tired of the ocean? Are the plains too plain? Come along with us on one of our mountain adventures. Here are some pictures from people who have had elevated experiences with us.</p>
     <hr>
- <div class="slideshow-container">
-  <div class="mySlides1">
-    <img src="assets/img/image1.jpg" style="width:100%">
-  </div>
 
-  <div class="mySlides1">
-    <img src="assets/img/image2.jpg" style="width:100%">
-  </div>
+
+
+    <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 2</div>
+        <img src="assets/img/image1.jpg" style="width:100%">
+        <div class="text">Trinidad</div>
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 2</div>
+        <img src="assets/img/image2.jpg" style="width:100%">
+        <div class="text">Hawaii</div>
+      </div>
+      
+     
+      
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      
+      </div>
+      <br>
+      
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        
+      </div>
+
 
   
-
-  <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
-</div>
-
-
-    
 
     
 
@@ -137,6 +133,33 @@
       <li><a href="#"><i class="fa fa-snapchat-square fa-2x"></i></a></li>
     </ul>
   </footer>
-
+  <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+        </script>
 </body>
 </html>
