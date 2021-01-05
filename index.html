@@ -8,11 +8,32 @@
   <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    var slideIndex = [1,1];
+    var slideId = ["mySlides1", "mySlides2"]
+    showSlides(1, 0);
+    showSlides(1, 1);
+    
+    function plusSlides(n, no) {
+      showSlides(slideIndex[no] += n, no);
+    }
+    
+    function showSlides(n, no) {
+      var i;
+      var x = document.getElementsByClassName(slideId[no]);
+      if (n > x.length) {slideIndex[no] = 1}    
+      if (n < 1) {slideIndex[no] = x.length}
+      for (i = 0; i < x.length; i++) {
+         x[i].style.display = "none";  
+      }
+      x[slideIndex[no]-1].style.display = "block";  
+    }
+    </script>
 </head>
 <body>
 
   <header>
-    <h2><a href="#">Mountain Travel</a></h2>
+    <h2><a href="#">Tropical Vacation</a></h2>
     <nav>
       <li><a href="#">Tours</a></li>
       <li><a href="#">About</a></li>
@@ -33,13 +54,30 @@
     <h3 class="title">Some of our destinations:</h3>
     <p>Tired of the ocean? Are the plains too plain? Come along with us on one of our mountain adventures. Here are some pictures from people who have had elevated experiences with us.</p>
     <hr>
+    
 
-    <ul class="grid">
-      <li class="small" style="background-image: url(assets/img/mountain1.jpg);"></li>
-      <li class="large" style="background-image: url(assets/img/mountain2.jpg);"></li>
-      <li class="large" style="background-image: url(assets/img/mountain3.jpg);"></li>
-      <li class="small" style="background-image: url(assets/img/mountain4.jpg);"></li>
-    </ul>
+    <div class="slideshow-container">
+  <div class="mySlides1">
+    <img src="mountain1.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides1">
+    <img src="mountain2.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides1">
+    <img src="mountain3.jpg" style="width:100%">
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+</div>
+
+
+    
+
+    
+
   </section>
 
   <section class="packages">
