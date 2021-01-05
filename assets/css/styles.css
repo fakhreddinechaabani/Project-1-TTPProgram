@@ -2,7 +2,8 @@
 * {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
+    box-sizing: border-box;
+    
 }
 
 html {
@@ -100,6 +101,11 @@ header {
 		opacity: 1;
 	}
 }
+
+.mySlides1 {display: none;}
+
+img {vertical-align: middle;}
+
 .slideshow-container {
     max-width: 1000px;
     position: relative;
