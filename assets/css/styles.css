@@ -107,7 +107,8 @@ header {
 img {vertical-align: middle;}
 
 .slideshow-container {
-    max-width: 1000px;
+	max-width: 700px;
+	/* max-height: 500px; */
     position: relative;
     margin: auto;
   }
